@@ -15,7 +15,6 @@ import jakarta.annotation.PostConstruct;
 public class ProfesionalService {
 
     private List<Profesional> profesionales = new ArrayList<>();
-    public List<Profesional> listadoEspecialidad = new ArrayList<>();
 
     @PostConstruct
     public void init(){
@@ -27,6 +26,10 @@ public class ProfesionalService {
         profesionales.add(p3);
     }
 
+    public List<Profesional> getProfesionales(){
+        return profesionales;
+    }
+    
     public Profesional createProfesional(Profesional profesional){
          if(profesionales.stream().anyMatch(u -> u.getId().equals(profesional.getId()))) {
             throw new ResponseStatusException(HttpStatus.CONFLICT, 
@@ -37,7 +40,8 @@ public class ProfesionalService {
     }
 
     public List<Profesional> ListarPorEspecialidad(String especialidad){
-    
+        List<Profesional> listadoEspecialidad = new ArrayList<>();
+
         for (Profesional profesional : profesionales) {
             if(profesional.getEspecialidad().equals(especialidad)){
                 listadoEspecialidad.add(profesional);

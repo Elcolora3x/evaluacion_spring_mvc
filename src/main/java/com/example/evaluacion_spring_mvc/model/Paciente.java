@@ -56,4 +56,15 @@ public class Paciente {
                 + email + "]";
     }
     
+    @Override
+    public boolean equals(Object obj) {
+
+        final Paciente paciente = (Paciente) obj;
+
+        if(this.dni.equals(paciente.dni)){
+            return true;
+        }
+
+        return false;
+    }
 }

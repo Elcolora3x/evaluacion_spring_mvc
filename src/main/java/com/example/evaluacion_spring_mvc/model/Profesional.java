@@ -47,6 +47,16 @@ public class Profesional {
                 + especialidad + "]";
     }
     
-    
+     @Override
+    public boolean equals(Object obj) {
+
+        final Profesional profesional = (Profesional) obj;
+
+        if(this.id.equals(profesional.id) && this.especialidad.equals(profesional.especialidad)){
+            return true;
+        }
+
+        return false;
+    }
 
 }
