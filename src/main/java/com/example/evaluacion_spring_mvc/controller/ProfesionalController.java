@@ -27,7 +27,7 @@ public class ProfesionalController {
         return new ResponseEntity<Profesional>(profesionalService.createProfesional(profesional), HttpStatus.OK);
     }
 
-    @GetMapping("/{especialidad}") //NOTA, CUANDO TESTEO CON POSTMAN ME DEVUELVE DUPLICADOS CADA VEZ QUE ENVIO UN GET, PREGUNTAR SI ES CORRECTO
+    @GetMapping("/{especialidad}") 
     public ResponseEntity<List<Profesional>> ListarPorEspecialidad(@PathVariable("especialidad") String especialidad){
         return new ResponseEntity<List<Profesional>>(profesionalService.ListarPorEspecialidad(especialidad), HttpStatus.OK);
     }
